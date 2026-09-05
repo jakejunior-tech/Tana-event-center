@@ -19,6 +19,7 @@ const inputClass =
 
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [lastUrl, setLastUrl] = useState("");
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -52,13 +53,23 @@ export function BookingForm() {
     const url = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
       text
     )}`;
-    window.open(url, "_blank");
+    setLastUrl(url);
+
+    // popup-safe: try window.open, fall back to direct navigation
+    const win = window.open(url, "_blank");
+    if (!win || win.closed) {
+      window.location.href = url;
+    }
+
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 6000);
+    setTimeout(() => setSubmitted(false), 8000);
   };
 
   return (
-    <section id="booking" className="relative overflow-hidden py-24 sm:py-32">
+    <section
+      id="booking"
+      className="relative overflow-hidden pt-24 pb-44 sm:pt-32 sm:pb-32"
+    >
       <div className="pointer-events-none absolute left-1/2 top-0 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-gold/5 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -210,6 +221,16 @@ export function BookingForm() {
                 {submitted ? "Opening WhatsApp..." : "Request Availability"}
                 <Send className="h-4 w-4" />
               </button>
+              {submitted && lastUrl && (
+                <a
+                  href={lastUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 block text-center text-sm font-semibold text-gold underline underline-offset-4 hover:text-gold-light"
+                >
+                  Didn't open? Tap here to chat on WhatsApp
+                </a>
+              )}
               <p className="mt-4 text-center text-xs text-white/40">
                 Your enquiry opens in WhatsApp — no card or payment required to check
                 availability.

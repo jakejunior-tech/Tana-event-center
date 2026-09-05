@@ -14,7 +14,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Tana on WhatsApp"
-      className="group fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#25D366] p-1 pr-1 text-white shadow-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.4)] sm:pr-5"
+      className="group fixed bottom-24 right-4 z-50 flex items-center gap-2 rounded-full bg-[#25D366] p-1 pr-1 text-white shadow-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.4)] sm:bottom-6 sm:right-6 sm:pr-5"
     >
       <span className="flex h-12 w-12 items-center justify-center">
         <MessageCircle className="h-6 w-6" />

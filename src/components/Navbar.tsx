@@ -118,7 +118,7 @@ export function Navbar() {
               <a
                 href="#booking"
                 onClick={(e) => scrollTo(e, "#booking")}
-                className="mt-2 rounded-full bg-gold px-5 py-3 text-center text-base font-semibold text-background"
+                className="mt-2 w-fit mx-auto rounded-full bg-gold px-10 py-3 text-center text-base font-semibold text-background"
               >
                 BOOK NOW
               </a>

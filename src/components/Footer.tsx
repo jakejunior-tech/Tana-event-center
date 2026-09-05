@@ -33,7 +33,7 @@ const nav = [
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-charcoal/70">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 pb-36 pt-16 sm:px-8 sm:pb-16">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div>
